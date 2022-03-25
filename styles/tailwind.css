@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ####################################### */
+
+@font-face {
+  font-family: "Brown";
+  src: url("/fonts/brown/Brown-Regular.woff") format("woff");
+}
+
+body {
+  @apply text-black dark:text-white bg-white dark:bg-gray-900;
+  font-family: "Brown";
+  font-size: 16px;
+}
+a {
+  @apply hover:text-blue-tron dark:hover:text-blue-tron
+}
+.f-container {
+  @apply container mx-auto px-3 sm:px-4 lg:px-3 xl:px-0 max-w-6xl
+}
+.logo {
+  @apply text-black dark:text-white;
+  font-size: 22px;
+  line-height: 2rem/* 32px */;
+  font-weight: 700;
+}
+
+a.underbar span:before {
+  background: #05cdff;  /* blue-tron */
+  bottom: -16px;
+  content: "";
+  height: 2px;
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition: width .2s;
+  width: 0;
+}
+a.underbar-active span:before {
+  background: #05cdff;  /* blue-tron */
+  bottom: -16px;
+  content: "";
+  height: 2px;
+  position: absolute;
+  width: 100%;
+}
+a.underbar:hover span:before {
+  width: 100%;
+}
