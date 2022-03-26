@@ -9,6 +9,7 @@ export function getLatestPosts() {
       id: true,
       title: true,
       img_url: true,
+      createdAt: true,
       category: {
         select: {
           id: true,
@@ -16,7 +17,7 @@ export function getLatestPosts() {
         }
       },
     },
-    take: 8,
+    take: 4,
     orderBy: { updatedAt: "desc" },
   });
 }
@@ -33,6 +34,13 @@ export function getTrailers() {
       id: true,
       title: true,
       img_url: true,
+      createdAt: true,
+      category: {
+        select: {
+          id: true,
+          name: true,
+        }
+      },
     },
     take: 4,
     orderBy: { updatedAt: "desc" },
