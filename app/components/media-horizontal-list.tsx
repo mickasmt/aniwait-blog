@@ -58,7 +58,7 @@ function MediaHorList({ data, title }: { data: Media[], title: string }) {
   };
 
   return (
-    <div className="f-container">
+    <div className="f-container mb-9">
 
       <div className="flex flex-row py-4 mt-10 justify-between">
         <h3 className="text-[22px] font-bold md:text-2xl tracking-normal">

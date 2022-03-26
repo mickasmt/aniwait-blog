@@ -25,7 +25,7 @@ function NewsCard({ data }: { data: NewsCardType }) {
       </Link>
 
       <Link to={`/posts/${convertToSlug(data.title)}`}>
-        <h3 className="text-[15px] md:text-base font-bold text-neutral-900 dark:text-white dark:font-medium line-clamp-2 pt-1">
+        <h3 className="text-[15px] md:text-base font-bold dark:font-medium line-clamp-2 pt-1">
           {data.title}
         </h3>
       </Link>

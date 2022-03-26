@@ -51,12 +51,14 @@ export default function Index() {
 
   return (
     <div>
-      <TitleLinkSeparator title="Actualités" link="/news" />
-      <div className="f-container overflow-hidden">
-        <div className="grid grid-cols-2 gap-x-4  gap-y-8 md:grid-cols-4">
-          {data.latestNews.map((post, index) => (
-            <NewsCard data={post} key={index} />
-          ))}
+      <div className="pt-6 pb-12 bg-gray-50 dark:bg-gray-800/60">
+        <TitleLinkSeparator title="Actualités" link="/news" />
+        <div className="f-container overflow-hidden">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4">
+            {data.latestNews.slice(0,4).map((post, index) => (
+              <NewsCard data={post} key={index} />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -64,7 +66,7 @@ export default function Index() {
 
       <AiringHorList data={futureAiring} title="Dans les heures à venir" />
 
-      <div className="mt-12 pt-0.5 pb-16 bg-sky-100 dark:bg-sky-900/30">
+      <div className="pt-6 pb-12 bg-gray-50 dark:bg-gray-800/60">
         <TitleLinkSeparator title="Les derniers trailers" link="/news/trailers" />
         <div className="f-container overflow-hidden">
           <div className="grid grid-cols-2 gap-x-4  gap-y-8 md:grid-cols-4">
@@ -78,6 +80,17 @@ export default function Index() {
       <MediaHorList data={trending} title="Tendances du moment" />
 
       <MediaHorList data={nextSeason} title="Saisons à venir" />
-    </div>
+
+      <div className="pt-6 pb-12 bg-gray-50 dark:bg-gray-800/60">
+        <TitleLinkSeparator title="Actualités" link="/news" />
+        <div className="f-container overflow-hidden">
+          <div className="grid grid-cols-2 gap-x-4  gap-y-8 md:grid-cols-4">
+            {data.latestNews.slice(4).map((post, index) => (
+              <NewsCard data={post} key={index} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div >
   );
 }

@@ -59,7 +59,7 @@ function AiringHorList({ data, title }: { data: AiringSchedule[], title: string 
   };
 
   return (
-    <div className="f-container">
+    <div className="f-container mb-9">
 
       <div className="flex flex-row py-4 mt-10 justify-between">
         <h3 className="text-[22px] font-semibold md:text-2xl">
