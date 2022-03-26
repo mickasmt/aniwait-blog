@@ -29,7 +29,7 @@ function BottomBar() {
   // const user = useOptionalUser();
 
   return (
-    <div className="flex fixed inset-x-0 bottom-0 h-12 border-t border-gray-200 w-full backdrop-blur-lg z-50 text-gray-900 md:hidden sm:h-14 bg-white dark:bg-gray-900/90 dark:border-gray-800 dark:text-gray-100 dark:backdrop-blur-xl">
+    <div className="bottom-bar flex fixed inset-x-0 bottom-0 border-t border-gray-200 w-full backdrop-blur-lg z-50 text-gray-900 md:hidden sm:h-14 bg-white dark:bg-gray-900/90 dark:border-gray-800 dark:text-gray-100 dark:backdrop-blur-xl">
       <div className="f-container flex w-full h-full justify-between items-center space-x-3">
 
         {NAV_LINKS.map(link => (
