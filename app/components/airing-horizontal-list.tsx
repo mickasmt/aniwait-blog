@@ -14,7 +14,7 @@ function AiringHorList({ data, title }: { data: AiringSchedule[], title: string 
     dots: false,
     arrows: false,
     infinite: false,
-    speed: 900,
+    speed: 600,
     swipeToSlide: true,
     slidesToShow: 7,
     slidesToScroll: 7,
