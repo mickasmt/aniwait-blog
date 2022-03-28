@@ -37,13 +37,13 @@ async function seed() {
   // create categories
   const category_1 = await prisma.category.create({
     data: {
-      name: "Animes"
+      name: "animes"
     },
   });
 
   const category_2 = await prisma.category.create({
     data: {
-      name: "Trailers"
+      name: "trailers"
     },
   });
 

@@ -3,9 +3,9 @@ import { useState } from "react";
 import Slider from "react-slick";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
+import slugify from "slugify";
 import { Media } from "~/utils/types";
 import { MediaCard } from "./media-card";
-import { convertToSlug } from "~/utils/functions";
 
 function MediaHorList({ data, title }: { data: Media[], title: string }) {
   const [sliderRef, setSliderRef] = useState(null);
@@ -13,7 +13,7 @@ function MediaHorList({ data, title }: { data: Media[], title: string }) {
     dots: false,
     arrows: false,
     infinite: false,
-    speed: 500,
+    speed: 900,
     swipeToSlide: true,
     slidesToShow: 7,
     slidesToScroll: 7,
@@ -81,7 +81,7 @@ function MediaHorList({ data, title }: { data: Media[], title: string }) {
           <Link
             className="mr-4"
             key={index}
-            to={`/animes/${item.id}/${convertToSlug(item.title.userPreferred)}`}
+            to={`/animes/${item.id}/${slugify(item.title.userPreferred)}`}
             prefetch="intent"
           >
             <MediaCard media={item} />

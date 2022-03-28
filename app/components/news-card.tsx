@@ -1,30 +1,22 @@
 import { Link } from "remix";
-import { convertToSlug } from "~/utils/functions";
+import slugify from "slugify";
 import { format } from "date-fns";
+import { NewsNoDetailsType } from "~/utils/types";
 
-type NewsCardType = {
-  id: string;
-  title: string;
-  img_url: string;
-  createdAt: Date;
-  category: {
-    id: string;
-    name: string;
-  }
-}
 
-function NewsCard({ data }: { data: NewsCardType }) {
+function NewsCard({ data }: { data: NewsNoDetailsType }) {
   return (
     <div>
-      <Link to={`/posts/${convertToSlug(data.title)}`}>
+      <Link to={`/posts/${slugify(data.title)}`}>
         <img
-          className="aspect-[16/9] sm:aspect-[16/8] md:aspect-[16/10] w-full object-cover rounded overflow-hidden"
+          className="aspect-[16/9] sm:aspect-[16/8] md:aspect-[16/10] w-full object-cover rounded-md overflow-hidden"
           src={data.img_url}
+          // src="https://adala-news.fr/wp-content/uploads/2021/08/Dolls-Frontline-1920x1370.png"
           alt={data.title}
         />
       </Link>
 
-      <Link to={`/posts/${convertToSlug(data.title)}`}>
+      <Link to={`/posts/${slugify(data.title)}`}>
         <h3 className="text-[15px] md:text-base font-bold dark:font-medium line-clamp-2 pt-1">
           {data.title}
         </h3>
@@ -32,7 +24,7 @@ function NewsCard({ data }: { data: NewsCardType }) {
 
       <div className="flex align-baseline items-center text-sm w-full text-gray-500 dark:text-gray-400 mt-1">
         <Link
-          to={`/news/${convertToSlug(data.category.name)}`}
+          to={`/news/${slugify(data.category.name)}`}
           className="capitalize hover:text-blue-600"
         >
           <span>{data.category.name}</span>

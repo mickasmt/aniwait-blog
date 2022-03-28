@@ -50,6 +50,18 @@ type CoverImage = {
   large: string;
 }
 
+// News card
+type NewsNoDetailsType = {
+  id: string;
+  title: string;
+  img_url: string;
+  createdAt: Date;
+  category: {
+    id: string;
+    name: string;
+  }
+}
+
 export type {
   DataResponse,
   LatestAiring,
@@ -60,5 +72,6 @@ export type {
   AiringSchedule,
   Media,
   Title,
-  CoverImage
+  CoverImage,
+  NewsNoDetailsType
 }

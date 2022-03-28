@@ -3,7 +3,7 @@ import { Logo } from "./logo"
 
 function Footer() {
   return (
-    <footer className="pt-10 pb-14 mt-14 border-t border-gray-200 bg-white text-gray-700 md:pb-2 dark:bg-gray-900 dark:border-gray-800 dark:text-gray-500">
+    <footer className="pt-10 pb-14 border-t border-gray-200 bg-white text-gray-700 md:pb-2 dark:bg-gray-900 dark:border-gray-800 dark:text-gray-500">
       <div className="f-container w-full">
         <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2">

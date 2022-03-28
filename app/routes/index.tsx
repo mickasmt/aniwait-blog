@@ -5,8 +5,9 @@ import { getUnixTime, addDays, subDays } from "date-fns";
 import { DataResponse } from "~/utils/types";
 import { getLatestPosts, getTrailers } from "~/models/home.server";
 
-import TitleLinkSeparator from "~/components/title-link-separator";
 import { NewsCard } from "~/components/news-card";
+import { TallCard } from "~/components/tall-card";
+import TitleLinkSeparator from "~/components/title-link-separator";
 import { AiringHorList } from "~/components/airing-horizontal-list";
 import { MediaHorList } from "~/components/media-horizontal-list";
 
@@ -51,20 +52,26 @@ export default function Index() {
 
   return (
     <div>
-      <div className="pt-6 pb-12 bg-gray-50 dark:bg-gray-800/60">
+      <div className="pt-6 pb-8 bg-white dark:bg-gray-800/60">
         <TitleLinkSeparator title="Actualités" link="/news" />
+
         <div className="f-container overflow-hidden">
-          <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4">
-            {data.latestNews.slice(0,4).map((post, index) => (
-              <NewsCard data={post} key={index} />
+          <div className="relative w-full h-auto flex gap-x-4 snap-x snap-mandatory overflow-x-auto pb-5">
+            {data.latestNews.slice(0, 4).map((post, index) => (
+              <div className="snap-start scroll-mr-10 shrink-0 h-auto">
+                <div className="snap-start scroll-mr-7">
+                  <TallCard data={post} key={index} />
+                </div>
+              </div>
             ))}
           </div>
         </div>
+
       </div>
 
       <AiringHorList data={latestAiring} title="Dernières sorties" />
 
-      <AiringHorList data={futureAiring} title="Dans les heures à venir" />
+      <AiringHorList data={futureAiring} title="Dans les heures à venir !" />
 
       <div className="pt-6 pb-12 bg-gray-50 dark:bg-gray-800/60">
         <TitleLinkSeparator title="Les derniers trailers" link="/news/trailers" />

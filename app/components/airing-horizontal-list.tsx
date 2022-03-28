@@ -3,10 +3,10 @@ import { useState } from "react";
 import Slider from "react-slick";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
+import slugify from "slugify";
 import { MediaCard } from "./media-card";
 import { AiringDetails } from "./airing-details";
 import { AiringSchedule } from "~/utils/types";
-import { convertToSlug } from "~/utils/functions";
 
 function AiringHorList({ data, title }: { data: AiringSchedule[], title: string }) {
   const [sliderRef, setSliderRef] = useState(null);
@@ -14,7 +14,7 @@ function AiringHorList({ data, title }: { data: AiringSchedule[], title: string 
     dots: false,
     arrows: false,
     infinite: false,
-    speed: 500,
+    speed: 900,
     swipeToSlide: true,
     slidesToShow: 7,
     slidesToScroll: 7,
@@ -82,7 +82,7 @@ function AiringHorList({ data, title }: { data: AiringSchedule[], title: string 
           <Link
             className="mr-4"
             key={index}
-            to={`/animes/${item.media.id}/${convertToSlug(item.media.title.userPreferred)}`}
+            to={`/animes/${item.media.id}/${slugify(item.media.title.userPreferred)}`}
             prefetch="intent"
           >
             <MediaCard media={item.media} />
