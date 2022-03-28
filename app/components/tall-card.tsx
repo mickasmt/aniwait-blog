@@ -12,13 +12,13 @@ function TallCard({ data }: { data: NewsNoDetailsType }) {
         <Link to={`/posts/${slugify(data.title)}`} >
           <img
             className="aspect-[9/16] w-60 h-96 object-cover rounded-xl shadow-lg"
-            // src={data.img_url}
-            src="https://adala-news.fr/wp-content/uploads/2021/08/Dolls-Frontline-1920x1370.png"
+            src={data.img_url}
+            // src="https://adala-news.fr/wp-content/uploads/2021/08/Dolls-Frontline-1920x1370.png"
             alt={data.title}
           />
         </Link>
 
-        <div className="absolute p-3 bottom-2 left-2 right-2 z-30 backdrop-blur-md bg-white/50 dark:bg-gray-900/70 rounded-xl flex items-center">
+        <div className="absolute p-3 bottom-2 left-2 right-2 z-30 backdrop-blur-md bg-white dark:bg-gray-900/80 rounded-xl flex items-center">
           <h3 className="text-xl md:text-base font-semibold dark:font-medium line-clamp-2">
             {data.title}
           </h3>
