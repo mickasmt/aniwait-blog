@@ -27,6 +27,19 @@ export function getPost({
 }: Pick<Post, "id">) {
   return prisma.post.findFirst({
     where: { id },
+    select: {
+      id: true,
+      title: true,
+      body: true,
+      img_url: true,
+      createdAt: true,
+      category: {
+        select: {
+          id: true,
+          name: true,
+        }
+      },
+    },
   });
 }
 
