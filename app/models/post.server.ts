@@ -12,33 +12,28 @@ export function getPosts() {
 
 export function getPostsByCategory({ categoryName }: { categoryName: Category["name"] }) {
   return prisma.post.findMany({
-    where: { 
+    where: {
       category: {
         name: categoryName
       }
-     },
+    },
     // select: { id: true, title: true },
     orderBy: { updatedAt: "desc" },
   });
 }
 
 export function getPost({
-  id 
+  id
 }: Pick<Post, "id">) {
   return prisma.post.findFirst({
     where: { id },
-    select: {
-      id: true,
-      title: true,
-      body: true,
-      img_url: true,
-      createdAt: true,
-      category: {
+    include: {
+      user: {
         select: {
-          id: true,
-          name: true,
+          username: true,
         }
       },
+      category: true,
     },
   });
 }
