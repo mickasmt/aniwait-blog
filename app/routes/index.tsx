@@ -51,9 +51,10 @@ export default function Index() {
 
   return (
     <div>
-      <div className="f-container">
+      {/* <div className="f-container">
         Slider homepage here
-      </div>
+      </div> */}
+      
       <div className="pt-6 pb-12 bg-gray-50 dark:bg-gray-800/60">
         <TitleLinkSeparator title="Actualités" link="/news" />
         <div className="f-container overflow-hidden">

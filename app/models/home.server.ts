@@ -17,7 +17,8 @@ export function getLatestPosts() {
         }
       },
     },
-    take: 8,
+    take: 4, ///not enought articles in deb
+    // take: 8,
     orderBy: { updatedAt: "desc" },
   });
 }

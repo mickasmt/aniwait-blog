@@ -9,7 +9,7 @@ function NewsCard({ data }: { data: NewsNoDetailsType }) {
     <div>
       <Link to={`/posts/${data.id}/${slugify(data.title)}`}>
         <img
-          className="aspect-[16/9] sm:aspect-[16/8] md:aspect-[16/10] w-full object-cover rounded-md overflow-hidden"
+          className="aspect-[16/9] sm:aspect-[16/8] md:aspect-[16/10] w-full object-cover object-center rounded-md overflow-hidden"
           src={data.img_url}
           // src="https://adala-news.fr/wp-content/uploads/2021/08/Dolls-Frontline-1920x1370.png"
           alt={data.title}

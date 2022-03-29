@@ -4,7 +4,7 @@ function MediaCard({media}: {media: Media}) {
   return (
     <div className="w-[144px] h-auto">
       <img
-        className="aspect-[1/4] w-full max-h-[236px] shadow object-cover rounded overflow-hidden" 
+        className="aspect-[1/4] w-full max-h-[236px] shadow object-cover object-center rounded overflow-hidden" 
         src={media.coverImage.extraLarge}
         alt=""
       />
