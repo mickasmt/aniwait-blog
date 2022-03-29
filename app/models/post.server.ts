@@ -23,13 +23,10 @@ export function getPostsByCategory({ categoryName }: { categoryName: Category["n
 }
 
 export function getPost({
-  id,
-  userId,
-}: Pick<Post, "id"> & {
-  userId: User["id"];
-}) {
+  id 
+}: Pick<Post, "id">) {
   return prisma.post.findFirst({
-    where: { id, userId },
+    where: { id },
   });
 }
 
@@ -37,9 +34,10 @@ export function getPost({
 export function createPost({
   body,
   title,
+  img_url,
   userId,
   categoryId,
-}: Pick<Post, "body" | "title"> & {
+}: Pick<Post, "body" | "title" | "img_url"> & {
   userId: User["id"];
   categoryId: Category["id"];
 }) {
@@ -47,6 +45,7 @@ export function createPost({
     data: {
       title,
       body,
+      img_url,
       user: {
         connect: {
           id: userId,

@@ -7,7 +7,7 @@ import { NewsNoDetailsType } from "~/utils/types";
 function NewsCard({ data }: { data: NewsNoDetailsType }) {
   return (
     <div>
-      <Link to={`/posts/${slugify(data.title)}`}>
+      <Link to={`/posts/${data.id}/${slugify(data.title)}`}>
         <img
           className="aspect-[16/9] sm:aspect-[16/8] md:aspect-[16/10] w-full object-cover rounded-md overflow-hidden"
           src={data.img_url}

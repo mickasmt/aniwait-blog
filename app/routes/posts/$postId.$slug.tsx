@@ -1,43 +1,44 @@
 import type { LoaderFunction, ActionFunction } from "remix";
-import { redirect } from "remix";
-import { json, useLoaderData, useCatch, Form } from "remix";
-import invariant from "tiny-invariant";
-import type { Note } from "~/models/note.server";
-import { deleteNote } from "~/models/note.server";
-import { getNote } from "~/models/note.server";
-import { requireUserId } from "~/session.server";
+import { json, useLoaderData, useCatch, Form } from "remix"; 
+// import { redirect } from "remix";
+import invariant from "tiny-invariant"; 
+// import { requireUserId } from "~/session.server";
+
+import type { Post } from "~/models/post.server";
+import { getPost } from "~/models/post.server";
+// import { deletePost } from "~/models/post.server";
 
 type LoaderData = {
-  note: Note;
+  post: Post;
 };
 
-export const loader: LoaderFunction = async ({ request, params }) => {
-  const userId = await requireUserId(request);
-  invariant(params.noteId, "noteId not found");
-
-  const note = await getNote({ userId, id: params.noteId });
-  if (!note) {
+export const loader: LoaderFunction = async ({ params }) => {  
+  invariant(params.postId, "expected params.id");
+  const post = await getPost({ id: params.postId });
+  
+  if (!post) {
     throw new Response("Not Found", { status: 404 });
   }
-  return json<LoaderData>({ note });
+  return json<LoaderData>({ post });
 };
 
-export const action: ActionFunction = async ({ request, params }) => {
-  const userId = await requireUserId(request);
-  invariant(params.noteId, "noteId not found");
+// export const action: ActionFunction = async ({ request, params }) => {
+//   const userId = await requireUserId(request);
+//   invariant(params.noteId, "noteId not found");
 
-  await deleteNote({ userId, id: params.noteId });
+//   await deleteNote({ userId, id: params.noteId });
 
-  return redirect("/");
-};
+//   return redirect("/");
+// };
 
 export default function NoteDetailsPage() {
   const data = useLoaderData() as LoaderData;
 
   return (
-    <div>
-      <h3 className="text-2xl font-bold">{data.note.title}</h3>
-      <p className="py-6">{data.note.body}</p>
+    <div className="f-container">
+      <h3 className="text-2xl font-bold">{data.post.title}</h3>
+      <p className="py-6">{data.post.body}</p>
+
       <hr className="my-4" />
       <Form method="post">
         <button

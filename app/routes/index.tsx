@@ -51,13 +51,14 @@ export default function Index() {
 
   return (
     <div>
-      Slider homepage here
-
+      <div className="f-container">
+        Slider homepage here
+      </div>
       <div className="pt-6 pb-12 bg-gray-50 dark:bg-gray-800/60">
         <TitleLinkSeparator title="Actualités" link="/news" />
         <div className="f-container overflow-hidden">
           <div className="grid grid-cols-2 gap-x-4  gap-y-8 md:grid-cols-4">
-            {data.latestNews.slice(0,4).map((post, index) => (
+            {data.latestNews.map((post, index) => (
               <NewsCard data={post} key={index} />
             ))}
           </div>
@@ -83,7 +84,7 @@ export default function Index() {
 
       <MediaHorList data={nextSeason} title="Saisons à venir" />
 
-      
+
     </div >
   );
 }

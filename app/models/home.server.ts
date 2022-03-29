@@ -17,7 +17,7 @@ export function getLatestPosts() {
         }
       },
     },
-    take: 12,
+    take: 8,
     orderBy: { updatedAt: "desc" },
   });
 }
