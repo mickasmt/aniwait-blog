@@ -6,6 +6,10 @@ export type { Post } from "@prisma/client";
 
 export function getPosts() {
   return prisma.post.findMany({
+    include: {
+      category: true,
+    },
+    take: 8,
     orderBy: { updatedAt: "desc" },
   });
 }
@@ -14,10 +18,13 @@ export function getPostsByCategory({ categoryName }: { categoryName: Category["n
   return prisma.post.findMany({
     where: {
       category: {
-        name: categoryName
+        name: categoryName.toLowerCase()
       }
     },
-    // select: { id: true, title: true },
+    include: {
+      category: true,
+    },
+    take: 8,
     orderBy: { updatedAt: "desc" },
   });
 }

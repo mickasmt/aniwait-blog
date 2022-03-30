@@ -28,7 +28,7 @@ export function getTrailers() {
     where: {
       published: true,
       category: {
-        name: 'Trailers'
+        name: 'trailers'
       }
     },
     select: {

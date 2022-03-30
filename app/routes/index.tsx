@@ -71,7 +71,7 @@ export default function Index() {
       <AiringHorList data={futureAiring} title="Dans les heures à venir !" />
 
       <div className="pt-6 pb-12 bg-gray-50 dark:bg-gray-800/60">
-        <TitleLinkSeparator title="Les derniers trailers" link="/news/trailers" />
+        <TitleLinkSeparator title="Les derniers trailers" link="/posts/trailers" />
         <div className="f-container overflow-hidden">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8">
             {data.trailers.map((post, index) => (

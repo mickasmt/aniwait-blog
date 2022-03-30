@@ -1,68 +1,52 @@
-import { LoaderFunction, Link } from "remix";
-import { json, useLoaderData, useCatch, Form } from "remix";
+import { LoaderFunction } from "remix";
+import { json, useLoaderData } from "remix";
 
-import { format } from "date-fns";
 import invariant from "tiny-invariant";
-import type { Post } from "~/models/post.server";
-import { getPost } from "~/models/post.server";
+import { getPostsByCategory } from "~/models/post.server";
+import TitleLinkSeparator from "~/components/title-link-separator";
+import { NewsCard } from "~/components/news-card";
 
 type LoaderData = {
-  post: Awaited<ReturnType<typeof getPost>>;
+  category_name: string;
+  posts: Awaited<ReturnType<typeof getPostsByCategory>>;
 };
 
 export const loader: LoaderFunction = async ({ params }) => {
-  invariant(params.postId, "expected params.id");
-  const post = await getPost({ id: params.postId });
+  invariant(params.categoryName, "expected params.categoryName");
+  const category_name = params.categoryName;
+  const posts = await getPostsByCategory({ categoryName: category_name });
 
-  if (!post) {
-    throw new Response("Not Found", { status: 404 });
-  }
-  return json<LoaderData>({ post });
+  return json<LoaderData>({ posts, category_name });
 };
 
 export default function PostsByCategoryPage() {
   const data = useLoaderData() as LoaderData;
-  const { post } = data;
+  const { posts, category_name } = data;
 
   return (
-    <div className="f-container">
-      <div className="flex w-full columns-2 gap-3 py-4">
-        {/* Display full post */}
-        <div className="w-full md:w-4/6 md:flex-shrink-0">
-
-          {post !== null ?
-            <article className="pt-5">
-              <Link className="text-blue-tron capitalize hover:underline" to={`/news/category/${post.category.name}`}>
-                {post.category.name}
-              </Link>
-              <h1 className="text-gray-900 text-3xl mt-3 md:text-4xl dark:text-white leading-12">{post.title}</h1>
-              <div className="flex justify-between items-center mt-6 mb-4 text-gray-600 dark:text-gray-300">
-                <span>Publié par {post.user.username}</span>
-                <span v-else="v-else">{format(new Date(post.createdAt), 'dd MMM, yyyy')}</span>
+    <main className="f-container py-5 min-h-screen">
+      {posts.length === 0
+        ? (
+          <p className="p-4">Aucune news pour l'instant</p>
+        )
+        : (
+          <div>
+            <TitleLinkSeparator title={category_name} />
+            <div className="f-container overflow-hidden">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4">
+                {posts.map((post, index) => (
+                  <NewsCard data={post} key={index} />
+                ))}
               </div>
-              <img
-                className="object-cover mb-7 w-full h-full"
-                src={post.img_url}
-                alt={post.title}
-              />
-              <div className="prose max-w-none prose-h2:mt-6 dark:prose-invert">
-                {/* <p>{data.post?.description}</p> */}
-                <p>{data.post?.body}</p>
-              </div>
-            </article>
-            :
-            <div className="f-container">Post not found</div>
-          }
-
-        </div>
-        {/* Sidebar */}
-        <div className="hidden sticky top-20 h-60 md:block md:w-2/6">
-          <div className="p-4 rounded-lg">
-            Sidebar
+            </div>
+            <div className="mt-6 py-5 justify-center text-center">
+              Pagination
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        )
+      }
+
+    </main >
   );
 }
 

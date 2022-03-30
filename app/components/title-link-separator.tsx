@@ -9,7 +9,7 @@ export default function TitleLinkSeparator({ title, link }: TitleLinkProps) {
   return (
     // md:text-[22px]
     <div className="f-container flex flex-row py-3 items-center justify-between">
-      <h3 className="text-[22px] font-semibold md:text-2xl md:tracking-wider"> 
+      <h3 className="capitalize text-[22px] font-semibold md:text-2xl md:tracking-wider"> 
         {title}
       </h3>
 

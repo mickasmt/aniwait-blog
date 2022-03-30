@@ -1,6 +1,7 @@
 import { Link } from "remix";
 import slugify from "slugify";
 import { format } from "date-fns";
+import frLocale from 'date-fns/locale/fr'
 import { NewsNoDetailsType } from "~/utils/types";
 
 
@@ -29,7 +30,7 @@ function NewsCard({ data }: { data: NewsNoDetailsType }) {
         >
           <span>{data.category.name}</span>
         </Link>
-        <span>&nbsp; — &nbsp;{format(new Date(data.createdAt), 'dd.MM.yyyy')}</span>
+        <span>&nbsp; — &nbsp;{format(new Date(data.createdAt), 'dd MMM yyyy', { locale: frLocale })}</span>
       </div>
     </div>
   )
