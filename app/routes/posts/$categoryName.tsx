@@ -3,6 +3,7 @@ import { json, useLoaderData, useCatch, Form } from "remix";
 
 import { format } from "date-fns";
 import invariant from "tiny-invariant";
+import type { Post } from "~/models/post.server";
 import { getPost } from "~/models/post.server";
 
 type LoaderData = {
@@ -19,7 +20,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   return json<LoaderData>({ post });
 };
 
-export default function PostDetailsPage() {
+export default function PostsByCategoryPage() {
   const data = useLoaderData() as LoaderData;
   const { post } = data;
 

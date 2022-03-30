@@ -33,15 +33,21 @@ function Navbar() {
         </div>
         <div className="flex space-x-3">
           {user ? (
-            <Link to="/profil">
-              {/* {user.email} */}
-              Compte
-            </Link>
+            <NavLink
+              to="/profil"
+              className={({ isActive }) => isActive ? 'text-blue-tron relative underbar-active' : 'relative underbar'}
+              prefetch="render"
+            >
+              <span>Compte</span>
+            </NavLink>
           ) : (
-            <div className="space-x-3">
-              {/* <Link to="/join">Inscription</Link> */}
-              <Link to="/login">Connexion</Link>
-            </div>
+            <NavLink
+              to="/login"
+              className={({ isActive }) => isActive ? 'text-blue-tron relative underbar-active' : 'relative underbar'}
+              prefetch="render"
+            >
+              <span>Connexion</span>
+            </NavLink>
           )}
           <ButtonDarkMode />
         </div>

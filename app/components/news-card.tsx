@@ -16,7 +16,7 @@ function NewsCard({ data }: { data: NewsNoDetailsType }) {
         />
       </Link>
 
-      <Link to={`/posts/${slugify(data.title)}`}>
+      <Link to={`/posts/${data.id}/${slugify(data.title)}`}>
         <h3 className="text-[15px] md:text-base font-bold dark:font-medium line-clamp-2 pt-1">
           {data.title}
         </h3>
@@ -24,7 +24,7 @@ function NewsCard({ data }: { data: NewsNoDetailsType }) {
 
       <div className="flex align-baseline items-center text-sm w-full text-gray-500 dark:text-gray-400 mt-1">
         <Link
-          to={`/news/${slugify(data.category.name)}`}
+          to={`/posts/${slugify(data.category.name)}`}
           className="capitalize hover:text-blue-600"
         >
           <span>{data.category.name}</span>
