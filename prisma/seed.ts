@@ -59,7 +59,7 @@ async function seed() {
     await prisma.post.create({
       data: {
         title: faker.lorem.sentence(),
-        body: faker.lorem.sentence(),
+        body: faker.lorem.paragraphs(10, '<br/><br/>\n'),
         img_url: faker.image.imageUrl(),
         published: true,
         /// published: faker.datatype.boolean(),

@@ -3,7 +3,6 @@ import { json, useLoaderData } from "remix";
 
 import invariant from "tiny-invariant";
 import { getPostsByCategory } from "~/models/post.server";
-import TitleLinkSeparator from "~/components/title-link-separator";
 import { NewsCard } from "~/components/news-card";
 
 type LoaderData = {
@@ -27,12 +26,14 @@ export default function PostsByCategoryPage() {
     <main className="f-container py-5 min-h-screen">
       {posts.length === 0
         ? (
-          <p className="p-4">Aucune news pour l'instant</p>
+          <p className="p-4">Aucunes publications pour le moment...</p>
         )
         : (
           <div>
-            <TitleLinkSeparator title={category_name} />
-            <div className="f-container overflow-hidden">
+            <h1 className="capitalize text-[22px] font-semibold md:text-2xl md:tracking-wider">
+              {category_name}
+            </h1>
+            <div className="py-4">
               <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4">
                 {posts.map((post, index) => (
                   <NewsCard data={post} key={index} />

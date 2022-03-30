@@ -2,6 +2,7 @@ import { LoaderFunction, Link } from "remix";
 import { json, useLoaderData, useCatch, Form } from "remix";
 
 import { format } from "date-fns";
+import frLocale from 'date-fns/locale/fr'
 import invariant from "tiny-invariant";
 import { getPost } from "~/models/post.server";
 
@@ -31,22 +32,22 @@ export default function PostDetailsPage() {
 
           {post !== null ?
             <article className="pt-5">
-              <Link className="text-blue-tron capitalize hover:underline" to={`/news/category/${post.category.name}`}>
+              <Link className="text-blue-tron capitalize hover:underline" to={`/posts/${post.category.name}`}>
                 {post.category.name}
               </Link>
               <h1 className="text-gray-900 text-3xl mt-3 md:text-4xl dark:text-white leading-12">{post.title}</h1>
               <div className="flex justify-between items-center mt-6 mb-4 text-gray-600 dark:text-gray-300">
                 <span>Publié par {post.user.username}</span>
-                <span v-else="v-else">{format(new Date(post.createdAt), 'dd MMM, yyyy')}</span>
+                <span v-else="v-else">{format(new Date(post.createdAt), 'dd MMMM yyyy', { locale: frLocale })}</span>
               </div>
               <img
                 className="object-cover mb-7 w-full h-full"
                 src={post.img_url}
                 alt={post.title}
               />
-              <div className="prose max-w-none prose-h2:mt-6 dark:prose-invert">
-                {/* <p>{data.post?.description}</p> */}
-                <p>{data.post?.body}</p>
+              <div className="prose max-w-none prose-h2:mt-6 dark:prose-invert" dangerouslySetInnerHTML={{__html: post.body}}>
+                {/* <p>{post.description}</p> */}
+                {/* <p>{post.body}</p> */}
               </div>
             </article>
             :

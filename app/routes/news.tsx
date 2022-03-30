@@ -19,7 +19,7 @@ export default function NewsPage() {
   const { posts } = data;
 
   return (
-    <main className="f-container py-5 min-h-screen">
+    <main className="f-container py-5">
       {posts.length === 0
         ? (
           <p className="p-4">Aucune news pour l'instant</p>
