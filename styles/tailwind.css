@@ -32,6 +32,10 @@ a {
   line-height: 2rem/* 32px */;
   font-weight: 700;
 }
+.h-screen-auth {
+  @apply bg-gray-50 dark:bg-gray-800/60;
+  height: 600px!important;
+}
 
 a.underbar span:before {
   background: #05cdff;  /* blue-tron */

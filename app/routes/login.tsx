@@ -93,7 +93,7 @@ export default function LoginPage() {
   }, [actionData]);
 
   return (
-    <div className="flex flex-col py-10 justify-center bg-gray-50 dark:bg-gray-800/60">
+    <div className="flex flex-col h-screen-auth justify-center">
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
           <div>
