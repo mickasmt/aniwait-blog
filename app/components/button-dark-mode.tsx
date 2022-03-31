@@ -1,5 +1,5 @@
 import { Theme, useTheme } from '~/utils/theme-provider';
-import { RiSunLine, RiMoonFill } from "react-icons/ri";
+import { RiMoonFill } from "react-icons/ri";
 import { ImSun } from "react-icons/im";
 
 

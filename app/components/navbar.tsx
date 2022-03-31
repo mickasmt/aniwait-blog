@@ -1,4 +1,4 @@
-import { Link, NavLink } from "remix"
+import { NavLink } from "remix"
 import { Logo } from "./logo"
 import { ButtonDarkMode } from "./button-dark-mode"
 import { useOptionalUser } from "~/utils";
@@ -43,7 +43,7 @@ function Navbar() {
           ) : (
             <NavLink
               to="/login"
-              className={({ isActive }) => isActive ? 'text-blue-tron relative underbar-active' : 'relative underbar'}
+              className={({ isActive }) => isActive ? 'text-blue-tron relative md:underbar-active' : 'relative md:underbar'}
               prefetch="render"
             >
               <span>Connexion</span>

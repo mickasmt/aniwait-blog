@@ -1,4 +1,4 @@
-import { json, Link, useLoaderData } from "remix";
+import { json, useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
 import { client } from '~/libs/graphql/client';
 import { MEDIA_QUERY } from '~/libs/graphql/queries';

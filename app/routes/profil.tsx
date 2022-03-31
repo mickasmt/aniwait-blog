@@ -1,4 +1,4 @@
-import { Form, json, useLoaderData, Outlet, Link, NavLink } from "remix";
+import { Form, json, useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
 
 import { requireUserId } from "~/session.server";
@@ -9,8 +9,8 @@ type LoaderData = {
   posts: Awaited<ReturnType<typeof getPosts>>;
 };
 
-export const loader: LoaderFunction = async ({ request }) => {
-  const userId = await requireUserId(request);
+export const loader: LoaderFunction = async () => {
+  // const userId = await requireUserId(request);
   const posts = await getPosts();
   return json<LoaderData>({ posts });
 };

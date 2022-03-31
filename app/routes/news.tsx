@@ -1,4 +1,4 @@
-import { json, useLoaderData, Link } from "remix";
+import { json, useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
 
 import { getPosts } from "~/models/post.server";

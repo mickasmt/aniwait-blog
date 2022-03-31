@@ -1,5 +1,5 @@
 import { LoaderFunction, Link } from "remix";
-import { json, useLoaderData, useCatch, Form } from "remix";
+import { json, useLoaderData } from "remix";
 
 import { format } from "date-fns";
 import frLocale from 'date-fns/locale/fr'
