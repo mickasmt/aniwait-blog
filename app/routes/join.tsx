@@ -22,6 +22,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 interface ActionData {
   errors: {
+    username?: string;
     email?: string;
     password?: string;
   };

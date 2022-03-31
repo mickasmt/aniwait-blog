@@ -33,14 +33,12 @@ a {
   font-weight: 700;
 }
 .h-screen-auth {
-  @apply bg-gray-50 dark:bg-gray-800/60;
+  @apply bg-slate-50 dark:bg-gray-800/60;
   height: 600px!important;
 }
 .top-22 {
   @apply top-[88px];
 }
-
-
 
 
 a.underbar span:before {

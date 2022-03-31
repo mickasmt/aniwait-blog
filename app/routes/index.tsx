@@ -58,7 +58,7 @@ export default function Index() {
       <div className="pt-6 pb-12 bg-gray-50 dark:bg-gray-800/60">
         <TitleLinkSeparator title="Actualités" link="/news" />
         <div className="f-container overflow-hidden">
-          <div className="grid grid-cols-2 gap-x-4  gap-y-8 md:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-4">
             {data.latestNews.map((post, index) => (
               <NewsCard data={post} key={index} />
             ))}
@@ -73,7 +73,7 @@ export default function Index() {
       <div className="pt-6 pb-12 bg-gray-50 dark:bg-gray-800/60">
         <TitleLinkSeparator title="Les derniers trailers" link="/posts/trailers" />
         <div className="f-container overflow-hidden">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-4">
             {data.trailers.map((post, index) => (
               <NewsCard data={post} key={index} />
             ))}
