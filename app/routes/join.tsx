@@ -32,6 +32,7 @@ export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
+  const username = formData.get("username");
   const redirectTo = formData.get("redirectTo");
 
   if (!validateEmail(email)) {
@@ -55,6 +56,20 @@ export const action: ActionFunction = async ({ request }) => {
     );
   }
 
+  if (typeof username !== "string") {
+    return json<ActionData>(
+      { errors: { username: "Username is required" } },
+      { status: 400 }
+    );
+  }
+
+  if (username.length < 2) {
+    return json<ActionData>(
+      { errors: { username: "Username is too short (3 caractères minimum)" } },
+      { status: 400 }
+    );
+  }
+
   const existingUser = await getUserByEmail(email);
   if (existingUser) {
     return json<ActionData>(
@@ -63,7 +78,7 @@ export const action: ActionFunction = async ({ request }) => {
     );
   }
 
-  const user = await createUser(email, password);
+  const user = await createUser(email, password, username);
 
   return createUserSession({
     request,
@@ -85,6 +100,7 @@ export default function Join() {
   const actionData = useActionData() as ActionData;
   const emailRef = React.useRef<HTMLInputElement>(null);
   const passwordRef = React.useRef<HTMLInputElement>(null);
+  const usernameRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
     if (actionData?.errors?.email) {
@@ -98,6 +114,34 @@ export default function Join() {
     <div className="flex flex-col h-screen-auth justify-center">
       <div className="mx-auto w-full max-w-md px-8">
         <Form method="post" className="space-y-6">
+        <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Username
+            </label>
+            <div className="mt-1">
+              <input
+                ref={usernameRef}
+                id="username"
+                required
+                autoFocus={true}
+                name="username"
+                type="text"
+                autoComplete="username"
+                aria-invalid={actionData?.errors?.email ? true : undefined}
+                aria-describedby="username-error"
+                className="w-full rounded border border-gray-500 px-2 py-1 text-lg"
+              />
+              {actionData?.errors?.username && (
+                <div className="pt-1 text-red-700" id="username-error">
+                  {actionData.errors.username}
+                </div>
+              )}
+            </div>
+          </div>
+
           <div>
             <label
               htmlFor="email"
