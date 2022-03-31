@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Link } from "remix";
 import { useState } from "react";
 import Slider from "react-slick";
