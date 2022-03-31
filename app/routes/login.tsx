@@ -155,7 +155,7 @@ export default function LoginPage() {
             type="submit"
             className="w-full rounded bg-sky-600  py-2 px-4 text-white hover:bg-sky-500 focus:bg-blue-400"
           >
-            Log in
+            Se connecter
           </button>
           <div className="flex items-center justify-between">
             <div className="flex items-center">
