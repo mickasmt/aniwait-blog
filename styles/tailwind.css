@@ -36,6 +36,12 @@ a {
   @apply bg-gray-50 dark:bg-gray-800/60;
   height: 600px!important;
 }
+.top-22 {
+  @apply top-[88px];
+}
+
+
+
 
 a.underbar span:before {
   background: #05cdff;  /* blue-tron */

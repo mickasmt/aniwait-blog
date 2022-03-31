@@ -16,24 +16,24 @@ function AnimeDetailPage() {
   const anime = data.Media;
 
   return (
-    <div className="f-container min-h-screen">
+    <div className="f-container">
 
-      <div className="flex text-left transform w-full md:inline-block my-8 md:align-middle">
+      <div className="flex w-full md:inline-block sm:my-2 md:my-6 md:align-middle">
         <div className="w-full relative flex items-center">
 
-          <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
+          <div className="w-full grid grid-cols-1 gap-y-3 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
 
-            <div className="aspect-[9/16] sm:col-span-4 lg:col-span-5">
-              <img src={anime.coverImage.extraLarge} alt={anime.title.userPreferred} className="w-full h-auto rounded-lg overflow-hidden object-center object-cover" />
+            <div className="sm:col-span-4 lg:col-span-5 sm:sticky top-20 md:top-22">
+              <img src={anime.coverImage.extraLarge} alt={anime.title.userPreferred} className="w-full rounded-lg overflow-hidden object-center object-cover" />
             </div>
 
-            <div className="sm:col-span-8 lg:col-span-7">
-              <h2 className="text-2xl font-extrabold sm:pr-12 mb-4">{anime.title.userPreferred}</h2>
+            <div className="sm:col-span-8 lg:col-span-7 py-2 sm:py-4 md:py-0">
+              <h2 className="text-2xl font-extrabold mb-4">{anime.title.userPreferred}</h2>
 
               {anime.description !== null ? 
-              <div className="text-lg text-gray-700 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: anime.description }} />
+              <div className="text-gray-700 dark:text-gray-400" dangerouslySetInnerHTML={{ __html: anime.description }} />
               :
-              <span className="text-lg text-gray-700 dark:text-gray-400">Aucune description pour le moment...</span>
+              <span className="text-gray-700 dark:text-gray-400">Aucune description pour le moment...</span>
               }
 
               <section className="mt-2 flex flex-col space-y-2" aria-describedby="Anime details">
@@ -42,10 +42,28 @@ function AnimeDetailPage() {
                 <span>Format : {anime.format}</span>
                 <span>{}</span>
               </section>
+
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
             </div>
           </div>
-
-        </div>
+        </div> 
       </div>
 
       {/* {
