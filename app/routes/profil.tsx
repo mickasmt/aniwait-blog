@@ -1,7 +1,7 @@
 import { Form, json, useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
 
-import { requireUserId } from "~/session.server";
+// import { requireUserId } from "~/session.server";
 import { useUser } from "~/utils";
 import { getPosts } from "~/models/post.server";
 
@@ -16,7 +16,7 @@ export const loader: LoaderFunction = async () => {
 };
 
 export default function ProfilPage() {
-  const data = useLoaderData() as LoaderData;
+  // const data = useLoaderData() as LoaderData;
   const user = useUser();
 
   return (
