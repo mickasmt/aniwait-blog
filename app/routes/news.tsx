@@ -22,8 +22,8 @@ export default function NewsPage() {
     <main className="py-5">
       {posts.length === 0
         ? (
-          <div className="f-container">
-            <p className="p-4">Aucunes actualités pour le moment...</p>
+          <div className="f-container text-center py-4">
+            <p>Aucunes actualités pour le moment...</p>
           </div>
         )
         : (

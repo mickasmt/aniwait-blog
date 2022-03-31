@@ -6,7 +6,5 @@
 #!/bin/sh
 
 set -ex
-npx prisma generate
-npx prisma migrate dev
-# npx prisma migrate deploy
+npx prisma migrate deploy
 npm run start
