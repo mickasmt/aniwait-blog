@@ -39,7 +39,7 @@ function BottomBar() {
             className={({ isActive }) => isActive ? 'text-blue-tron h-full w-full' : 'h-full w-full text-gray-800 dark:text-gray-100'}
             prefetch="render"
           >
-            <div className="flex w-full h-full justify-center items-center">
+            <div className="flex w-full h-full justify-center items-center align-bottom">
               {/* <UtilsRawSvg className="text-sky-600" :name="item.icon"></UtilsRawSvg> */}
               {link.icon} 
               {/* <className='w-5 h-5 text-blue-tron' /> */}
