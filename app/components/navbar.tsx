@@ -13,7 +13,7 @@ function Navbar() {
   const user = useOptionalUser();
 
   return (
-    <header className="flex h-14 border-b border-gray-200 sticky top-0 backdrop-blur-md z-50 text-black bg-white/80 dark:bg-gray-900/90 dark:border-gray-800 dark:text-gray-100 dark:backdrop-blur-xl">
+    <header className="flex h-12 sm:h-14 border-b border-gray-200 sticky top-0 backdrop-blur-md z-50 text-black bg-white/80 dark:bg-gray-900/90 dark:border-gray-800 dark:text-gray-100 dark:backdrop-blur-xl">
       <div className="flex flex-row w-full h-full justify-between items-center f-container">
         <Logo />
 
