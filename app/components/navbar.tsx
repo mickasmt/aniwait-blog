@@ -1,7 +1,10 @@
-import { NavLink } from "remix"
+import { NavLink, Link } from "remix"
 import { Logo } from "./logo"
 import { ButtonDarkMode } from "./button-dark-mode"
 import { useOptionalUser } from "~/utils";
+import { FaRegUser } from "react-icons/fa";
+import { RiSearchLine } from "react-icons/ri";
+
 
 const LINKS = [
   { name: 'Accueil', to: '/' },
@@ -31,24 +34,33 @@ function Navbar() {
           ))}
 
         </div>
-        <div className="flex space-x-3">
+        <div className="flex space-x-5 align-middle items-center text-gray-600 dark:text-gray-300">
+          <Link
+            to="/"
+            prefetch="intent"
+          >
+            <RiSearchLine className='w-5 h-5' />
+          </Link>
+
           {user ? (
             <NavLink
               to="/profil"
-              className={({ isActive }) => isActive ? 'text-blue-tron relative underbar-active' : 'relative underbar'}
+              className={({ isActive }) => isActive ? 'text-blue-tron' : ''}
               prefetch="render"
             >
-              <span>Compte</span>
+              <FaRegUser className='w-5 h-5' />
             </NavLink>
+
           ) : (
             <NavLink
               to="/login"
-              className={({ isActive }) => isActive ? 'text-blue-tron relative md:underbar-active' : 'relative md:underbar'}
+              className={({ isActive }) => isActive ? 'text-blue-tron' : ''}
               prefetch="render"
             >
-              <span>Connexion</span>
+              <FaRegUser className='w-5 h-5' />
             </NavLink>
           )}
+
           <ButtonDarkMode />
         </div>
       </div>

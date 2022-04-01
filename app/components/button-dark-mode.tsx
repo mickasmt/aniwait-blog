@@ -1,5 +1,5 @@
 import { Theme, useTheme } from '~/utils/theme-provider';
-import { RiMoonFill } from "react-icons/ri";
+import { RiMoonLine } from "react-icons/ri";
 import { ImSun } from "react-icons/im";
 
 
@@ -16,10 +16,10 @@ function ButtonDarkMode() {
       <button onClick={toggleTheme}>
         {theme === 'light'
           ? (
-            <ImSun className='w-5 h-5 text-gray-400 md:mt-0.5' />
+            <ImSun className='w-5 h-5 ' />
           )
           : (
-            <RiMoonFill className='w-5 h-5 text-blue-tron md:mt-0.5' />
+            <RiMoonLine className='w-[22px] h-[22px] ' />
           )
         }
       </button>

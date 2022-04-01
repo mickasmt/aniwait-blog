@@ -42,47 +42,13 @@ export const loader = async () => {
 
 export default function Index() {
   const data = useLoaderData() as LoaderData;
-  const { animes} = data;
+  const { animes, trailers, latestNews} = data;
   
   const trending = animes.trending.media;
   const nextSeason = animes.nextSeason.media;
   const latestAiring = animes.latestAiring.airingSchedules.filter((airing) => airing.media.isAdult == false);
   const futureAiring = animes.futureAiring.airingSchedules.filter((airing) => airing.media.isAdult == false);
   // const season = animes.season.media;
-  
-  const fake_data = [                                                                               
-    {                                                                             
-      id: 'cl1dyffia0163ls559k3kpqx3',                                            
-      title: 'Omnis maxime magni necessitatibus nisi quas illum mollitia at.',    
-      img_url: 'http://placeimg.com/640/480',                                     
-      createdAt: new Date('2022-03-30T19:21:55.291Z'),                                      
-      category: {
-        id: 'cl1dyfdqn0032ls55aihq94iw',
-        name: 'trailers'
-      }             
-    },                                                                            
-    {                                                                             
-      id: 'cl1dyffex0157ls55oqedknmc',                                            
-      title: 'Facere cumque nihil laborum voluptatibus culpa veniam iure sed.',   
-      img_url: 'http://placeimg.com/640/480',                                     
-      createdAt: new Date('2022-03-30T19:21:55.291Z'),                                      
-      category: { id: 'cl1dyfdqn0032ls55aihq94iw', name: 'trailers' }             
-    },                                                                            
-    {                                                                             
-      id: 'cl1dyffbv0150ls55ava1tgfa',                                            
-      title: 'Aut suscipit repellendus earum neque necessitatibus quia.',         
-      img_url: 'http://placeimg.com/640/480',                                     
-      createdAt: new Date('2022-03-30T19:21:55.291Z'),                                      
-      category: { id: 'cl1dyfdqn0032ls55aihq94iw', name: 'trailers' }             
-    },                                                                            
-    {                                                                             
-      id: 'cl1dyff8x0143ls55abodyjnw',                                            
-      title: 'Consequatur explicabo blanditiis rerum libero ea qui suscipit.',    
-      img_url: 'http://placeimg.com/640/480',                                     
-      createdAt: new Date('2022-03-30T19:21:55.291Z'),                                      
-      category: { id: 'cl1dyfdo60025ls55uv2fi749', name: 'animes' }               
-    }                                                                             
-  ];
 
   return (
     <div>
@@ -94,7 +60,7 @@ export default function Index() {
         <TitleLinkSeparator title="Actualités" link="/news" />
         <div className="f-container overflow-hidden">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-4">
-            {fake_data.map((post, index) => (
+            {latestNews.map((post, index) => (
               <NewsCard data={post} key={index} />
             ))}
           </div>
@@ -109,7 +75,7 @@ export default function Index() {
         <TitleLinkSeparator title="Les derniers trailers" link="/posts/trailers" />
         <div className="f-container overflow-hidden">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-4">
-            {fake_data.map((post, index) => (
+            {trailers.map((post, index) => (
               <NewsCard data={post} key={index} />
             ))}
           </div>
