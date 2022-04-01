@@ -3,7 +3,6 @@ import type { LoaderFunction } from "remix";
 import { client } from '~/libs/graphql/client';
 import { MEDIA_QUERY } from '~/libs/graphql/queries';
 import invariant from "tiny-invariant";
-import { response } from "msw";
 
 export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.id, "expected params.id");
@@ -24,7 +23,7 @@ export default function AnimeDetailPage() {
 
           <div className="w-full grid grid-cols-1 gap-y-3 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
 
-            <div className="sm:col-span-4 lg:col-span-5 sm:sticky top-20 md:top-22">
+            <div className="sm:col-span-4 lg:col-span-5 sm:sticky top-20 md:top-22 pt-3 sm:pt-0">
               <img src={anime.coverImage.extraLarge} alt={anime.title.userPreferred} className="w-full rounded-lg overflow-hidden object-center object-cover" />
             </div>
 
