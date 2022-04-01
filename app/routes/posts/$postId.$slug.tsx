@@ -1,4 +1,4 @@
-import { LoaderFunction, Link } from "remix";
+import { LoaderFunction, Link, useCatch } from "remix";
 import { json, useLoaderData } from "remix";
 
 import { format } from "date-fns";
@@ -51,7 +51,7 @@ export default function PostDetailsPage() {
               </div>
             </article>
             :
-            <div className="f-container">Post not found</div>
+            <div className="f-container">Aucune publication trouvée 😭</div>
           }
 
         </div>
@@ -66,18 +66,18 @@ export default function PostDetailsPage() {
   );
 }
 
-// export function ErrorBoundary({ error }: { error: Error }) {
-//   console.error(error);
+export function ErrorBoundary({ error }: { error: Error }) {
+  console.error(error);
 
-//   return <div>An unexpected error occurred: {error.message}</div>;
-// }
+  return <div>An unexpected error occurred: {error.message}</div>;
+}
 
-// export function CatchBoundary() {
-//   const caught = useCatch();
+export function CatchBoundary() {
+  const caught = useCatch();
 
-//   if (caught.status === 404) {
-//     return <div className="f-container">Post not found</div>;
-//   }
+  if (caught.status === 404) {
+    return <div className="f-container">Aucune publication trouvée 😭</div>;
+  }
 
-//   throw new Error(`Unexpected caught response with status: ${caught.status}`);
-// }
+  throw new Error(`Unexpected caught response with status: ${caught.status}`);
+}

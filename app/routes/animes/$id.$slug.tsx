@@ -1,8 +1,9 @@
-import { json, useLoaderData } from "remix";
+import { json, useCatch, useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
 import { client } from '~/libs/graphql/client';
 import { MEDIA_QUERY } from '~/libs/graphql/queries';
 import invariant from "tiny-invariant";
+import { response } from "msw";
 
 export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.id, "expected params.id");
@@ -11,7 +12,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   return json(data);
 };
 
-function AnimeDetailPage() {
+export default function AnimeDetailPage() {
   const data = useLoaderData();
   const anime = data.Media;
 
@@ -40,27 +41,8 @@ function AnimeDetailPage() {
                 <span>Saison : {anime.season}</span>
                 <span>Type : {anime.type}</span>
                 <span>Format : {anime.format}</span>
-                <span>{}</span>
               </section>
 
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam atque incidunt, velit aperiam delectus doloribus ad? Ducimus quaerat repellat, omnis maxime nisi vero, praesentium quos eos pariatur nemo odio illum.</p>
             </div>
           </div>
         </div> 
@@ -146,4 +128,23 @@ function AnimeDetailPage() {
   );
 }
 
-export default AnimeDetailPage;
+export function ErrorBoundary({ error }: { error: Error }) {
+  console.error(error);
+
+  // return <div>An unexpected error occurred: {error.message}</div>;
+  // cant access error graphql for the moment
+  return <div className="f-container">Aucun anime trouvé ! 😭</div>;
+}
+
+export function CatchBoundary() {
+  const caught = useCatch();
+
+  console.log(caught);
+  
+
+  if (caught.status === 404) {
+    return <div className="f-container">Aucun anime trouvé ! 😭</div>;
+  }  
+
+  throw new Error(`Unexpected caught response with status: ${caught.status}`);
+}

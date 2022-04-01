@@ -14,6 +14,7 @@ function NewsCard({ data }: { data: NewsNoDetailsType }) {
           src={data.img_url}
           // src="https://adala-news.fr/wp-content/uploads/2021/08/Dolls-Frontline-1920x1370.png"
           alt={data.title}
+          loading="lazy"
         />
       </Link>
 
