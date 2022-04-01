@@ -8,7 +8,7 @@ function MediaCard({media}: {media: Media}) {
         src={media.coverImage.extraLarge}
         alt=""
       />
-      <p className="text-sm font-semibold text-zinc-900 dark:text-white dark:font-medium line-clamp-1 pt-1">
+      <p className="text-sm text-bold line-clamp-1 pt-1.5">
         {media.title.userPreferred}
       </p>
     </div>

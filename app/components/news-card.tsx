@@ -18,7 +18,7 @@ function NewsCard({ data }: { data: NewsNoDetailsType }) {
       </Link>
 
       <Link to={`/posts/${data.id}/${slugify(data.title)}`}>
-        <h3 className="text-[15px] md:text-base font-medium line-clamp-2 pt-1">
+        <h3 className="line-clamp-2 pt-1">
           {data.title}
         </h3>
       </Link>

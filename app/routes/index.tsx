@@ -67,7 +67,7 @@ export default function Index() {
         </div>
       </div>
 
-      <AiringHorList data={latestAiring} title="Sorties ces derniers 24H" />
+      <AiringHorList data={latestAiring} title="Sorties ces derniers 24h" />
 
       <AiringHorList data={futureAiring} title="Dans les heures à venir !" />
 
