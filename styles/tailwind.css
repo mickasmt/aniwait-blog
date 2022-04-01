@@ -4,16 +4,6 @@
 
 /* ####################################### */
 
-/* @font-face {
-  font-family: "Brown";
-  src: url('/fonts/brown/brown.eot'); 
-  src: url('/fonts/brown/brown.eot?#iefix') format('embedded-opentype'), 
-       url('/fonts/brown/brown.woff2') format('woff2'), 
-       url('/fonts/brown/brown.woff') format('woff'), 
-       url('/fonts/brown/brown.ttf')  format('truetype'), 
-       url('/fonts/brown/brown.svg#svgFontName') format('svg');
-} */
-
 @font-face {
   font-family: "Brown Bold";
   src: url('/fonts/fonts-brown/Brown-Bold.woff2') format('woff2');
