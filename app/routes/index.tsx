@@ -11,7 +11,7 @@ import { AiringHorList } from "~/components/airing-horizontal-list";
 import { MediaHorList } from "~/components/media-horizontal-list";
 
 
-const VARIABLES = {
+var VARIABLES = {
   season: "WINTER",
   seasonYear: 2022,
   nextSeason: "SPRING",
