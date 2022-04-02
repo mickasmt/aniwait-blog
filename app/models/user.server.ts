@@ -13,6 +13,22 @@ export async function getUserByEmail(email: User["email"]) {
   return prisma.user.findUnique({ where: { email } });
 }
 
+export async function getUserByUsername(username: User["username"]) {
+  return prisma.user.findUnique({ where: { username } });
+}
+
+export async function checkUserIsAdmin(id: User["id"]) {
+  return prisma.user.findFirst({
+    where: {
+      id,
+      role: "ADMIN"
+    } 
+  });
+}
+
+
+// ##################
+
 export async function createUser(email: User["email"], password: string, username: string) {
   const hashedPassword = await bcrypt.hash(password, 10);
 
