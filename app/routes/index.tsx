@@ -29,6 +29,8 @@ type LoaderData = {
 };
 
 export const loader = async () => {
+  console.log(VARIABLES);
+  
   const animes = await client.request(HOME_QUERY, VARIABLES);
   const trailers = await getTrailers();
   const latestNews = await getLatestPosts();
