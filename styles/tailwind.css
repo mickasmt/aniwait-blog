@@ -57,7 +57,7 @@ a.underbar span:before {
 }
 a.underbar-active span:before {
   background: #05cdff;  /* blue-tron */
-  bottom: -16px;
+  bottom: -15px;
   content: "";
   height: 2px;
   position: absolute;

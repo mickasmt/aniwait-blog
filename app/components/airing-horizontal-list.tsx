@@ -68,11 +68,11 @@ function AiringHorList({ data, title }: { data: AiringSchedule[], title: string 
         </h3>
 
         <div className="flex flex-row space-x-3 items-center text-gray-800 dark:text-gray-100">
-          <button onClick={sliderRef?.slickPrev} className="hover:scale-125 ease-in-out duration-300">
+          <button onClick={sliderRef?.slickPrev} className="md:hover:scale-125 ease-in-out duration-300">
             <RiArrowLeftSLine className="w-6 h-6" />
           </button>
 
-          <button onClick={sliderRef?.slickNext} className="hover:scale-125 ease-in-out duration-300">
+          <button onClick={sliderRef?.slickNext} className="md:hover:scale-125 ease-in-out duration-300">
             <RiArrowRightSLine className="w-6 h-6" />
           </button>
         </div>
