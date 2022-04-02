@@ -11,27 +11,24 @@ import { AiringHorList } from "~/components/airing-horizontal-list";
 import { MediaHorList } from "~/components/media-horizontal-list";
 
 
-var VARIABLES = {
-  season: "WINTER",
-  seasonYear: 2022,
-  nextSeason: "SPRING",
-  nextYear: 2022,
-  latestAiringStart: getUnixTime(subDays(new Date(), 1)),
-  latestAiringEnd: getUnixTime(new Date()),
-  futureAiringStart: getUnixTime(new Date()),
-  futureAiringEnd: getUnixTime(addDays(new Date(), 1)),
-};
-
 type LoaderData = {
   animes: Awaited<DataResponse>;
   trailers: Awaited<ReturnType<typeof getTrailers>>;
   latestNews: Awaited<ReturnType<typeof getLatestPosts>>;
 };
 
-export const loader = async () => {
-  console.log(VARIABLES);
+export const loader = async () => {  
+  const animes = await client.request(HOME_QUERY, {
+    season: "WINTER",
+    seasonYear: 2022,
+    nextSeason: "SPRING",
+    nextYear: 2022,
+    latestAiringStart: getUnixTime(subDays(new Date(), 1)),
+    latestAiringEnd: getUnixTime(new Date()),
+    futureAiringStart: getUnixTime(new Date()),
+    futureAiringEnd: getUnixTime(addDays(new Date(), 1)),
+  });
   
-  const animes = await client.request(HOME_QUERY, VARIABLES);
   const trailers = await getTrailers();
   const latestNews = await getLatestPosts();
 
