@@ -53,6 +53,18 @@ export async function requireUserId(
   return userId;
 }
 
+// ####### Custom Function #######
+export async function verifyUserRole(request: Request, expectedRole: string) {
+  const userId = await requireUserId(request);
+
+  const user = await getUserById(userId);
+  if (user && user.role === expectedRole) return user;
+
+  throw await logout(request);
+}
+// ####### End Custom Function #######
+
+
 export async function requireUser(request: Request) {
   const userId = await requireUserId(request);
 

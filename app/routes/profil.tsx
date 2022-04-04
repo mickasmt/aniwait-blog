@@ -1,8 +1,8 @@
-import { Form, json } from "remix";
+import { Form, json, Link } from "remix";
 // import {useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
 
-// import { requireUserId } from "~/session.server";
+import { requireUserId } from "~/session.server";
 import { useUser } from "~/utils";
 import { getPosts } from "~/models/post.server";
 
@@ -10,8 +10,10 @@ type LoaderData = {
   posts: Awaited<ReturnType<typeof getPosts>>;
 };
 
-export const loader: LoaderFunction = async () => {
-  // const userId = await requireUserId(request);
+export const loader: LoaderFunction = async ({ request }) => {
+  // check if use is logged
+  await requireUserId(request);
+
   const posts = await getPosts();
   return json<LoaderData>({ posts });
 };
@@ -27,14 +29,23 @@ export default function ProfilPage() {
           Mon profil
         </h1>
         <p>{user.username}</p>
-        <Form action="/logout" method="post">
-          <button
-            type="submit"
-            className="rounded bg-slate-600 py-2 px-4 text-blue-100 hover:bg-blue-500 active:bg-blue-600"
-          >
-            Logout
-          </button>
-        </Form>
+        <div className="flex space-x-3 items-center">
+          {user && user.role === "ADMIN"
+            ? (
+              <Link to="/posts/new">Add post</Link>
+            )
+            : null
+          }
+          
+          <Form action="/logout" method="post">
+            <button
+              type="submit"
+              className="rounded bg-slate-600 py-2 px-4 text-blue-100 hover:bg-blue-500 active:bg-blue-600"
+            >
+              Logout
+            </button>
+          </Form>
+        </div>
       </header>
 
       <main className="flex h-full">

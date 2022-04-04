@@ -42,7 +42,7 @@ export default function PostDetailsPage() {
               </div>
               <img
                 className="object-cover mb-7 w-full h-full"
-                src={post.img_url}
+                src={post.imgUrl}
                 alt={post.title}
               />
               <div className="prose max-w-none prose-h2:mt-6 dark:prose-invert" dangerouslySetInnerHTML={{__html: post.body}}>

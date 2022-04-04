@@ -54,7 +54,7 @@ type CoverImage = {
 type NewsNoDetailsType = {
   id: string;
   title: string;
-  img_url: string;
+  imgUrl: string;
   createdAt: Date;
   category: {
     id: string;

@@ -8,7 +8,7 @@ export function getLatestPosts() {
     select: {
       id: true,
       title: true,
-      img_url: true,
+      imgUrl: true,
       createdAt: true,
       category: {
         select: {
@@ -33,7 +33,7 @@ export function getTrailers() {
     select: {
       id: true,
       title: true,
-      img_url: true,
+      imgUrl: true,
       createdAt: true,
       category: {
         select: {
