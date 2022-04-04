@@ -20,7 +20,7 @@ CREATE TABLE "Post" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "title" TEXT NOT NULL,
     "body" TEXT NOT NULL,
-    "img_url" TEXT NOT NULL,
+    "imgUrl" TEXT NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
     "published" BOOLEAN NOT NULL DEFAULT false,

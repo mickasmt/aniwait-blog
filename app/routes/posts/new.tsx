@@ -18,6 +18,7 @@ type ActionData = {
 
 export const action: ActionFunction = async ({ request }) => {
   const userId = await requireUserId(request);
+  // add requireCategory() before validation
 
   // check if user is ADMIN
   if(!checkUserIsAdmin(userId)) return;
@@ -26,7 +27,6 @@ export const action: ActionFunction = async ({ request }) => {
   const title = formData.get("title");
   const body = formData.get("body");
   const imgUrl = formData.get("img_url");
-  // const categoryId = formData.get("category");
   const categoryId = formData.get("category");
 
   if (typeof title !== "string" || title.length === 0) {
@@ -39,6 +39,20 @@ export const action: ActionFunction = async ({ request }) => {
   if (typeof body !== "string" || body.length === 0) {
     return json<ActionData>(
       { errors: { body: "Body is required" } },
+      { status: 400 }
+    );
+  }
+
+  if (typeof imgUrl !== "string" || imgUrl.length === 0) {
+    return json<ActionData>(
+      { errors: { imgUrl: "Une url d'image est requise" } },
+      { status: 400 }
+    );
+  }
+
+  if (typeof categoryId !== "string" || categoryId.length === 0) {
+    return json<ActionData>(
+      { errors: { categoryId: "Une url d'image est requise" } },
       { status: 400 }
     );
   }

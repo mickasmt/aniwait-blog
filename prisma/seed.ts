@@ -5,19 +5,15 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function seed() {
-  // if (process.env.NODE_ENV !== "development") {
-  //   return
-  // }
-
+  // cleanup the existing database
+  await prisma.review.deleteMany();
   await prisma.post.deleteMany();
   await prisma.category.deleteMany();
+  await prisma.password.deleteMany();
+  await prisma.user.deleteMany();
 
+  // create ADMIN user
   const email = "rachel@remix.run";
-
-  // cleanup the existing database
-  await prisma.user.delete({ where: { email } }).catch(() => {
-    // no worries if it doesn't exist yet
-  });
 
   const hashedPassword = await bcrypt.hash("racheliscool", 10);
 
@@ -60,7 +56,7 @@ async function seed() {
       data: {
         title: faker.lorem.sentence(),
         body: faker.lorem.paragraphs(10, '<br/><br/>\n'),
-        img_url: faker.image.imageUrl(),
+        imgUrl: faker.image.imageUrl(),
         published: true,
         /// published: faker.datatype.boolean(),
         userId: user.id,

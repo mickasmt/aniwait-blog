@@ -49,10 +49,10 @@ export function getPost({
 export function createPost({
   body,
   title,
-  img_url,
+  imgUrl,
   userId,
   categoryId,
-}: Pick<Post, "body" | "title" | "img_url"> & {
+}: Pick<Post, "body" | "title" | "imgUrl"> & {
   userId: User["id"];
   categoryId: Category["id"];
 }) {
@@ -60,7 +60,7 @@ export function createPost({
     data: {
       title,
       body,
-      img_url,
+      imgUrl,
       user: {
         connect: {
           id: userId,
