@@ -16,7 +16,7 @@ function AiringHorList({ data, title }: { data: AiringSchedule[], title: string 
     arrows: false,
     infinite: false,
     speed: 600,
-    swipeToSlide: true,
+    // swipeToSlide: true,
     slidesToShow: 7,
     slidesToScroll: 7,
     variableWidth: true,
@@ -39,19 +39,20 @@ function AiringHorList({ data, title }: { data: AiringSchedule[], title: string 
         breakpoint: 760,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 3
         }
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 3
         }
       },
       {
         breakpoint: 510,
         settings: {
+          speed: 400,
           slidesToShow: 2,
           slidesToScroll: 2
         }
@@ -67,7 +68,7 @@ function AiringHorList({ data, title }: { data: AiringSchedule[], title: string 
           {title}
         </h3>
 
-        <div className="flex flex-row space-x-3 items-center text-gray-800 dark:text-gray-100">
+        <div className="hidden md:flex flex-row space-x-3 items-center text-gray-800 dark:text-gray-100">
           <button onClick={sliderRef?.slickPrev} className="md:hover:scale-125 ease-in-out duration-300">
             <RiArrowLeftSLine className="w-6 h-6" />
           </button>

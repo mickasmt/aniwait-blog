@@ -16,10 +16,10 @@ function ButtonDarkMode() {
       <button onClick={toggleTheme}>
         {theme === 'light'
           ? (
-            <ImSun className='w-5 h-5 ' />
+            <ImSun className='w-5 h-5' />
           )
           : (
-            <RiMoonLine className='w-[22px] h-[22px] ' />
+            <RiMoonLine className='w-[22px] h-[22px]' />
           )
         }
       </button>
