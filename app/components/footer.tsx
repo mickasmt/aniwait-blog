@@ -3,7 +3,7 @@ import { Logo } from "./logo"
 
 function Footer() {
   return (
-    <footer className="pt-10 pb-14 border-t border-gray-200 bg-white text-gray-700 md:pb-2 dark:bg-gray-900 dark:border-gray-800 dark:text-gray-500">
+    <footer className="pt-10 pb-14 border-t border-gray-200 bg-white text-slate-700 md:pb-2 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-500">
       <div className="f-container w-full">
         <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2">
@@ -12,18 +12,18 @@ function Footer() {
               <p className="text-sm">Aniwait est un blog francophone centré sur l'actualité animes. Ne manquez plus les derniers trailers et retrouvez des articles en fonction de vos envies.</p>
             </div>
           </div>
-          <div className="space-y-2 text-sm">
-            <p className="text-base font-bold tracking-wide text-black dark:text-gray-400">
+          <div className="space-y-2">
+            <p className="text-bold text-black dark:text-white">
               Liens
             </p>
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-2 text-sm">
               <Link to="/">Accueil</Link>
               <Link to="/planning">Planning</Link>
               <Link to="/news">Actus</Link>
             </div>
           </div>
           <div className="space-y-2">
-            <span className="text-base font-bold tracking-wide text-black dark:text-gray-400">
+            <span className="text-bold text-black dark:text-white">
               Social
             </span>
             {/* <div className="flex items-center mt-1 space-x-3">Link</div> */}

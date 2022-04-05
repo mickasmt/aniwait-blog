@@ -22,7 +22,7 @@
 } */
 
 body {
-  @apply text-neutral-900 dark:text-white bg-white dark:bg-gray-900;
+  @apply text-gray-900 dark:text-white bg-white dark:bg-slate-900;
   font-family: "Brown Regular";
   font-size: 16px;
 }
@@ -69,4 +69,15 @@ a.underbar:hover span:before {
 .bottom-bar {
   height: calc(3rem + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+
+/* banner css */
+.heading {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.bg-layers {
+  -webkit-animation: filter-animation 4s infinite;
+  animation: filter-animation 4s infinite;
 }

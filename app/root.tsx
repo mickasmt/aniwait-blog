@@ -61,11 +61,10 @@ function App() {
     <html lang="fr" className={clsx(theme)}>
       <head>
         <Meta />
-        {/* <meta name="color-scheme" content={theme === 'light' ? 'light dark' : 'dark light'} /> */}
         <Links />
         <NonFlashOfWrongThemeEls ssrTheme={Boolean(data.theme)} />
       </head>
-      <body className="bg-white text-black dark:bg-gray-900 dark:text-white">
+      <body>
         <Navbar />
         <Outlet />
         <Footer />
