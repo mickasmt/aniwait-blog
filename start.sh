@@ -6,5 +6,6 @@
 #!/bin/sh
 
 set -ex
-npx prisma migrate deploy
+# npx prisma migrate deploy
+npx prisma migrate reset
 npm run start
