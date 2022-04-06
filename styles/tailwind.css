@@ -27,11 +27,17 @@ body {
   font-size: 16px;
 }
 a {
-  @apply hover:text-blue-tron dark:hover:text-blue-tron
+  @apply hover:text-blue-tron dark:hover:text-blue-tron;
 }
 .f-container {
-  @apply container mx-auto px-3 sm:px-4 lg:px-3 xl:px-0 max-w-6xl
+  @apply container mx-auto px-3 sm:px-4 lg:px-3 xl:px-0 max-w-6xl;
 }
+.f-container-with-img {
+  @apply container mx-auto px-0  lg:px-3 xl:px-0 max-w-6xl;
+}
+/* sm:px-4 */
+
+
 .logo {
   @apply text-black dark:text-white h-full items-center align-middle text-bold text-xl;
 }

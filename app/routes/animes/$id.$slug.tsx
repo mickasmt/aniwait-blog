@@ -16,18 +16,18 @@ export default function AnimeDetailPage() {
   const anime = data.Media;
 
   return (
-    <div className="f-container">
+    <div className="f-container-with-img sm:px-4 sm:my-4 md:my-6">
 
-      <div className="flex w-full md:inline-block sm:my-2 md:my-6 md:align-middle">
+      <div className="flex w-full md:inline-block md:align-middle">
         <div className="w-full relative flex items-center">
 
-          <div className="w-full grid grid-cols-1 gap-y-3 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
+          <div className="w-full grid grid-cols-1 gap-y-5 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
 
-            <div className="sm:col-span-4 lg:col-span-5 sm:sticky top-20 md:top-22 pt-3 sm:pt-0">
-              <img src={anime.coverImage.extraLarge} alt={anime.title.userPreferred} className="w-full rounded-lg overflow-hidden object-center object-cover" />
+            <div className="sm:col-span-4 lg:col-span-5 sm:sticky top-20 md:top-22 pt-0">
+              <img src={anime.coverImage.extraLarge} alt={anime.title.userPreferred} className="w-full sm:rounded-lg overflow-hidden object-center object-cover" />
             </div>
 
-            <div className="sm:col-span-8 lg:col-span-7 py-2 sm:py-4 md:py-0">
+            <div className="sm:col-span-8 lg:col-span-7 sm:py-2 px-3 sm:px-0">
               <h2 className="text-2xl font-extrabold mb-4">{anime.title.userPreferred}</h2>
 
               {anime.description !== null ? 
@@ -49,18 +49,6 @@ export default function AnimeDetailPage() {
 
       {/* {
         "Media": {
-          "id": 136226,
-          "title": {
-            "userPreferred": "Strike the Blood FINAL",
-            "romaji": "Strike the Blood FINAL",
-            "english": null,
-            "native": "ストライク・ザ・ブラッドFINAL"
-          },
-          "coverImage": {
-            "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx136226-P58frDKkgvTc.jpg",
-            "large": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx136226-P58frDKkgvTc.jpg"
-          },
-          "bannerImage": null,
           "startDate": {
             "year": 2022,
             "month": 3,
@@ -86,11 +74,7 @@ export default function AnimeDetailPage() {
             "Ecchi",
             "Fantasy",
             "Supernatural"
-          ],
-          "synonyms": [
-            "Strike the Blood V",
-            "ราชันย์โลหิตรัตติกาล ภาค 5"
-          ],
+          ]
           "source": "LIGHT_NOVEL",
           "isAdult": false,
           "meanScore": null,
