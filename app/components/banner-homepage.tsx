@@ -4,7 +4,7 @@ function BannerHomepage() {
 
   return (
     <section>
-      <div className="relative bg-slate-100 dark:bg-slate-900 overflow-hidden py-16">
+      <div className="relative bg-slate-100 dark:bg-[#1A1A1A] overflow-hidden py-16">
         <div className="relative z-20 container m-auto px-6 md:px-12">
           <div className="m-auto text-center space-y-8 lg:w-10/12 xl:w-8/12">
             <h1 className="font-bold text-4xl leading-10">Découvrez le planning des animes sur Aniwait !</h1>

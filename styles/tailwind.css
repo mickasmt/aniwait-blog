@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ############### VARS ################## */
+
+
 /* ####################################### */
 
 @font-face {
@@ -14,15 +17,44 @@
   src: url('/fonts/fonts-brown/Brown-Regular.woff2') format('woff2');
 }
 
-.text-bold {
+/* .text-bold {
   font-family: "Brown Bold";
-}
+} */
 /* .text-regular {
   font-family: "Brown Regular";
 } */
 
+/* ####################################### */
+
+/* @font-face {
+  font-family: "GT-Walsheim-Black";
+  src: url('/fonts/GT-Walsheim/GT-Walsheim-Black-subset.woff2') format('woff2');
+} */
+
+@font-face {
+  font-family: "GT-Walsheim-Regular";
+  src: url('/fonts/GT-Walsheim/GT-Walsheim-Regular-subset.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "GT-Walsheim-Medium";
+  src: url('/fonts/GT-Walsheim/GT-Walsheim-Medium-subset.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "GT-Walsheim-Bold";
+  src: url('/fonts/GT-Walsheim/GT-Walsheim-Bold-subset.woff2') format('woff2');
+}
+
+.text-bold {
+  /* font-family: "GT-Walsheim-Bold"; */
+  font-family: "Brown Bold";
+}
+/* ####################################### */
+
 body {
-  @apply text-gray-900 dark:text-white bg-white dark:bg-slate-900;
+  @apply text-[#000000F2] dark:text-white bg-white dark:bg-[#0f0f0f];
+  /* font-family: "GT-Walsheim-Regular"; */
   font-family: "Brown Regular";
   font-size: 16px;
 }
