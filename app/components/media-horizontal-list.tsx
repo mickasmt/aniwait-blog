@@ -16,8 +16,8 @@ function MediaHorList({ data, title }: { data: Media[], title: string }) {
     infinite: false,
     speed: 600,
     // swipeToSlide: true,
-    slidesToShow: 7,
-    slidesToScroll: 7,
+    slidesToShow: 6,
+    slidesToScroll: 6,
     variableWidth: true,
     responsive: [
       {

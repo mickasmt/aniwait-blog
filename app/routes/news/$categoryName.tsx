@@ -23,22 +23,20 @@ export default function PostsByCategoryPage() {
   const { posts, category_name } = data;
 
   return (
-    <main className="f-container py-5 min-h-screen">
+    <main className="f-container">
       {posts.length === 0
         ? (
           <p className="p-4">Aucunes publications pour le moment...</p>
         )
         : (
           <div>
-            <h1 className="capitalize text-[22px] font-semibold md:text-2xl md:tracking-wider">
+            <h1 className="capitalize text-bold text-2xl py-3">
               {category_name}
             </h1>
-            <div className="py-4">
-              <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4">
-                {posts.map((post, index) => (
-                  <NewsCard data={post} key={index} />
-                ))}
-              </div>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-4">
+              {posts.map((post, index) => (
+                <NewsCard data={post} key={index} />
+              ))}
             </div>
             <div className="mt-6 py-5 justify-center text-center">
               Pagination
