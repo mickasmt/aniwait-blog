@@ -53,8 +53,7 @@
 /* ####################################### */
 
 body {
-  @apply text-[#000000F2] dark:text-white bg-white dark:bg-[#0f0f0f];
-  /* font-family: "GT-Walsheim-Regular"; */
+  @apply text-dark dark:text-white bg-white dark:bg-dark;
   font-family: "Brown Regular";
   font-size: 16px;
 }
@@ -68,7 +67,6 @@ a {
   @apply container mx-auto px-0  lg:px-3 xl:px-0 max-w-6xl;
 }
 /* sm:px-4 */
-
 
 .logo {
   @apply text-black dark:text-white h-full items-center align-middle text-bold text-xl;

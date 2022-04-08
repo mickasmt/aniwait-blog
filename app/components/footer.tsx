@@ -3,7 +3,7 @@ import { Logo } from "./logo"
 
 function Footer() {
   return (
-    <footer className="pt-10 pb-14 border-t border-gray-200 bg-white text-slate-700 md:pb-2 dark:bg-[#1A1A1A] dark:border-[#2A2A2A] dark:text-slate-500">
+    <footer className="pt-10 pb-14 border-t border-gray-200 bg-white text-slate-700 md:pb-2 dark:bg-dark dark:border-gray-800/80 dark:text-slate-400">
       <div className="f-container w-full">
         <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="sm:col-span-2">
@@ -27,14 +27,14 @@ function Footer() {
               Social
             </span>
             {/* <div className="flex items-center mt-1 space-x-3">Link</div> */}
-            <p className="mt-1 text-sm text-gray-500">
+            <p className="mt-1 text-sm">
               {/* Retrouvez nous sur les réseaux ! */}
               Retrouvez "bientôt" nous sur les réseaux !
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col-reverse justify-between py-5 border-t border-gray-200 lg:flex-row dark:border-gray-800">
+        <div className="flex flex-col-reverse justify-between py-5 border-t border-gray-200 lg:flex-row dark:border-gray-800/80">
           <p className="text-sm">
             © Copyright 2022 &nbsp;—&nbsp; Aniwait. Tout droits réservés.
           </p>

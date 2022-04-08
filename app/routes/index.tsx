@@ -55,7 +55,7 @@ export default function Index() {
       {/* <BannerHomepage /> */}
 
       {latestNews.length ? (
-        <div className="pt-6 pb-12 bg-gray-50 dark:bg-[#1A1A1A]">
+        <div className="pt-6 pb-12 bg-gray-50 dark:bg-dark">
           <TitleLinkSeparator title="Actualités" link="/news" />
           <div className="f-container overflow-hidden">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-4">
@@ -72,7 +72,7 @@ export default function Index() {
       <AiringHorList data={futureAiring} title="Dans les heures à venir !" />
 
       {trailers.length ? (
-        <div className="pt-6 pb-12 bg-gray-50 dark:bg-[#1A1A1A]">
+        <div className="pt-6 pb-12 bg-gray-50 dark:bg-dark">
           <TitleLinkSeparator title="Les derniers trailers" link="/posts/trailers" />
           <div className="f-container overflow-hidden">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6 sm:gap-y-8 md:grid-cols-4">

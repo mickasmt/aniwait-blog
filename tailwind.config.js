@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         'blue-tron': '#05cdff',
+        'dark': '#0B0B0F',
       },
     },
   },
